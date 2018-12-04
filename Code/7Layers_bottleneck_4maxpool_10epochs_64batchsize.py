@@ -345,18 +345,11 @@ plt.legend()
 plt.show()
 
 # Test the model
-
-
-# In[18]:
-
-
 size = 4
 test_loader = torch.utils.data.DataLoader(dataset=test_dataset,
                                           batch_size=size,
                                           shuffle=False, num_workers=4
                                           )
-
-# In[19]:
 
 
 dataiter = iter(test_loader)
@@ -367,13 +360,8 @@ imshow(torchvision.utils.make_grid(images))
 print('GroundTruth: ', ' '.join('%5s' % classes[labels[j]] for j in range(size)))
 plt.show()
 
-# In[20]:
-
 images = Variable(images).to(device)
 outputs = cnn(images)
-
-# In[21]:
-
 
 _, predicted = torch.max(outputs, 1)
 
